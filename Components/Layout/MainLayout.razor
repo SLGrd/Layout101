@@ -1,0 +1,89 @@
+﻿@inherits LayoutComponentBase
+
+<!--    H T M L   -->
+<div class="main-container m-0 p-0">
+    <div class="sidebar" style="">        
+        <NavMenu SideWide="220px"/> <!-- Sidebar content goes here -->
+    </div>
+
+    <div class="container-fluid box" style="background-color:@CorDeFundo;color:@CorDoTexto;">
+        <!-- gradBottomLeftUpperRight : background em gradiente um dia faz um teste-->
+        <div class="row header">            
+            <div class="col-12 flexCenter gradLeftRight p-2" style="font-weight:200;color:white;height:max-content;border-top-right-radius:8px;">
+                <span>@Titulo</span>
+            </div>
+        </div>
+        <div class="row content ">
+            <div class="col-12 flexCenter flex-column">
+
+                <CascadingValue Value=@HeadLay Name="HeadLay">
+                    <CascadingValue Value=@CorDeFundo Name="Fundo">
+                        <CascadingValue Value=@CorDoTexto Name="Texto">   
+                           <CascadingValue Value="GetTitle">
+                                <CascadingValue Value="GetScreenMode">
+                                    @Body   <!-- User content from called page goes here -->
+                                </CascadingValue>
+                            </CascadingValue>                            
+                        </CascadingValue>
+                    </CascadingValue>
+                </CascadingValue>   
+
+            </div>
+        </div>
+        <div class="row footer">
+            <div class="col-12 flexCenter gradLeftRight" style="font-weight:100;color:white;height:max-content;border-bottom-right-radius:8px;">              
+                <span>Rodapé</span>
+            </div>           
+        </div>
+    </div>
+</div>
+
+<!--   S T Y LE  -->
+<style></style>
+
+<!--   C O D E   -->
+@code {
+    string HeadLay = "Tomé de Souza : Governador Geral do Brasil";
+    string CorDeFundo = ""; 
+    string CorDoTexto = "";
+    public Action<string>? GetTitle { get; set; }
+    public Action? GetScreenMode { get; set; }
+
+    //  An Action is a delegate type that represents a method that DOES NOT RETURN A VALUE
+    //  but can take parameters. It's essentially a pointer to a method.
+    //  Use Action when you need to pass around or store references to methods 
+    //  that match its signature, particularly when YOU WANT TO INVOKE THESE METHODS DYNAMICALLY OR ASYNCHRONOUSLY.
+    //  This is what we are doing. We will cascade the assigned method CALLBACK, the component that takes it can 
+    //  call this method and pass one parameter and perform other functions. An action does not return values back.
+
+    List<string> CoresDeFundo = new List<string> { 
+        "white", "black", "LightSeaGreen", "LightYellow",   "LightSkyBlue", "burlywood", "DarkOrange", "goldenrod" };
+    List<string> CoresDoTexto = new List<string> { 
+        "black", "white", "Darkblue",      "DarkSlateGray", "Navy",          "Firebrick", "black",     "DarkGreen" };
+
+    private string @Titulo = "Cabeçalho";
+    private int i = 0;
+    private double ScreenWidth { get; set; }
+
+    protected override void OnInitialized()
+    {
+        CorDeFundo = CoresDeFundo[0];   //  Set initial background color
+        CorDoTexto = CoresDoTexto[0];   //  Set initial text color
+
+        GetTitle = SetTitle;            //  Initializes GetTitle action so it will point to SetTitle action
+        GetScreenMode = SetScreenMode;  //  Initializes GetScreenMode action 
+    }
+    private void SetTitle(string s) 
+    { 
+        Titulo = s;
+        this.StateHasChanged();         //  Triggers layout refresh
+    }
+    private void SetScreenMode()
+    {       
+        i++;
+        CorDeFundo = CoresDeFundo[i % CoresDeFundo.Count];
+        CorDoTexto = CoresDoTexto[i % CoresDoTexto.Count];
+
+        this.StateHasChanged();         //  Triggers layout refresh
+    }
+}

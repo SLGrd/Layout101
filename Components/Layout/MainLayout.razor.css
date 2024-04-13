@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Make the layout fill the entire viewport height */
+}
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;    
+    max-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+    .box .row {
+        border: 0px dotted #0313fc;
+        margin: 1px;
+        padding: 1px;
+    }
+        .box .row.header {
+            flex: 0 1 15px;
+            border: solid 0px black;
+            font-size: 1.2rem;
+            background-color: darkgray;
+            padding: 1px;
+        }
+        .box .row.parms {
+            flex: 0 1 0px;
+            border: solid 0px green;
+        }
+        .box .row.content {
+            flex: 1 0 content;
+            border: solid 0px black;
+        }
+        .box .row.footer {
+            flex: 0 1 15px;
+            border: solid 0px black;
+            font-size: 1.2rem;
+            background-color: darkgray; 
+            padding: 1px;
+        }
+
+.gradBottomLeftUpperRight {
+    background: linear-gradient(to top right, #4e54c8, #8f94fb);
+}
+.gradCenterCorners {
+    background: radial-gradient(circle at center, #8f94fb, #4e54c8);
+}
+.gradLeftRight {
+    background: linear-gradient(to bottom, #444444, #222222 );
+}
+.gradRightLeft {
+    background: linear-gradient(to bottom, #111111, #444444 );
+}
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media query for smaller screen widths */
+@media screen and (max-width: 2200px) {
+    .box .row.footer {
+        font-size: 1.2rem;
+        background-color: greenyellow;
+        background-color: darkgray;
+    }
+}
+@media screen and (max-width: 1600px) {
+    .box .row.footer {
+        font-size: 1.2rem;
+        background-color: darkblue;
+        background-color: darkgray;
+    }
+}
+@media screen and (max-width: 1320px) {
+    .box .row.footer {
+        font-size: 1.2rem;
+        background-color: coral;
+        background-color: darkgray;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .box .row.footer {
+        font-size: 1.2rem;
+        background-color: blueviolet;
+        background-color: darkgray;
+    }
+}
+@media screen and (max-width: 992px) {
+    .box .row.footer {
+        font-size: 1.2rem;
+        background-color: yellow;
+        background-color: darkgray;
+    }
+}
+@media screen and (max-width: 768px) {
+    .box .row.footer {
+        font-size: 1.0rem;
+        background-color: red;
+        background-color: darkgray;
+    }
+}
+@media screen and (max-width: 576px) {
+    .box .row.footer {
+        font-size: 0.8rem;
+        background-color: darkgray;
+    }
+}
+@media screen and (max-width: 480px) {
+    .box .row.footer {
+        font-size: 0.5rem;
+        background-color: gold;
+        background-color: darkgray;
+    }
+}

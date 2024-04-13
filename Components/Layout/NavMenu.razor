@@ -1,0 +1,122 @@
+﻿<!--  Visual Studio sidebar modified -->
+<div class="container-fluid m-0 p-0" style="border-bottom:groove 1px gray; height:47px; ">
+    <div class="row m-0 p-0 ">
+        @if ( IsVisible)
+        {        
+            <div class="col-2 flexColCenter m-0 p-0">
+                <button class="btn " style="color:transparent;" @onclick="ToggleMenu">
+                    <span class="bi bi-arrow-left-circle ItemIcon me-2 ms-1" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="col-10 flexColStart m-0 p-0">
+                <h6 class="m-0" style="border:solid 0px yellow;color:white;padding-left:21px">Layout 101</h6>
+            </div>
+        }
+        else
+        {
+            <div class="col-12 flexColCenter m-0 p-0">
+                <button class="btn" style="color:transparent;" @onclick="ToggleMenu">
+                    <span class="bi bi-arrow-right-circle ItemIcon me-2 ms-1" aria-hidden="true"></span>
+                </button>
+            </div>
+        }
+    </div>    
+</div>
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi-house-door ItemIcon me-2" aria-hidden="true"></span>
+                @if (IsVisible)
+                {
+                    <span class="ItemFont"> Home</span> 
+                }                   
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="bi-calculator ItemIcon me-2" aria-hidden="true"></span>
+                @if (IsVisible)
+                {
+                    <span class="ItemFont"> Counter</span>
+                }                    
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="Weather">
+                <span class="bi-list ItemIcon me-2" aria-hidden="true"></span>
+                @if ( IsVisible)
+                {
+                    <span class="ItemFont">Weather</span>
+                }                                    
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .sidebar {
+        flex: 1 1 @SideWidth;
+        background-image: linear-gradient(to bottom right, #001100, #44aa44);
+       /*  background: linear-gradient(to top right, #4e54c8, #8f94fb);     */
+       /*  background: radial-gradient(circle at center, #7f84db, #3e44b8); */
+        background: linear-gradient(to bottom, #111111, #444444 );
+    }
+    .flexCenter {        
+        align-items: center;
+        justify-content: center;
+    }
+    .flexColStart {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        color: blue;
+    }
+    .flexColCenter{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: black;
+    }
+    .flexRowCenter {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        color: black;
+    }
+    .ItemFont {
+        font-size: 0.9rem;
+        color: lightgoldenrodyellow;
+    }
+    .ItemIcon {
+        font-size: 1.2rem;
+        color: lightgoldenrodyellow;
+    }
+</style>
+
+@code{
+    [Parameter]
+    public string SideWide { get; set; } = string.Empty;
+
+    private bool IsVisible = true;
+    private string SideWidth = "";
+
+    protected override void OnInitialized()
+    {
+        SideWidth = SideWide;
+        base.OnInitialized();
+    }
+    private void ToggleMenu()
+    {
+        IsVisible = !IsVisible;
+        SideWidth = ( SideWidth == "30px" ? "220px" : "30px");
+    }
+}

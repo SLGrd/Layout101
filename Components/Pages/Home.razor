@@ -1,0 +1,36 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<!-- HTML - Body -->
+    <h1>Layout</h1>
+    <h1>Cascading Parameters</h1>
+    <h1>Actions</h1>
+    <br />
+    <br />
+    <h2>Hello, world!</h2>
+    <h4 style="color:@TextoColor;"> @Header </h4>
+    <br />
+    <button class="btn btn-primary" @onclick="SetScreenMode">Click me</button>
+    <br />
+    <br />
+
+<!--     CODE    -->
+@code{
+    [CascadingParameter(Name = "HeadLay")] public string? Header { get; set; }
+    [CascadingParameter(Name = "Fundo")]   public string? FundoBack { get; set; }
+    [CascadingParameter(Name = "Texto")]   public string? TextoColor { get; set; }
+    [CascadingParameter]                   public Action<string>? GetTitle { get; set; }
+    [CascadingParameter]                   public Action? SetScreenModeAction { get; set; }
+
+    private void ExecuteGetTitleAction()
+    {   
+        GetTitle?.Invoke("Titulo Home Page - Tome de Souza"); 
+    } 
+    protected override void OnInitialized(){
+        ExecuteGetTitleAction();
+    }
+    private void SetScreenMode()
+    {
+        SetScreenModeAction?.Invoke();
+    }
+}
