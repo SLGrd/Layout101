@@ -1,0 +1,227 @@
+﻿<!--  Visual Studio sidebar modified -->
+<div class="container-fluid m-0 p-0" style="border-bottom:groove 1px gray; height:47px; ">
+    <div class="row m-0 p-0 ">
+        @if (IsVisible)
+        {
+            <div class="col-2 flexColCenter m-0 p-0">
+                <button class="btn " style="color:transparent;" @onclick="ToggleMenu">
+                    <span class="bi bi-arrow-left-circle ItemIcon me-2 ms-1" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="col-10 flexColStart m-0 p-0">
+                <h6 class="m-0" style="border:solid 0px yellow;color:white;padding-left:21px">Layout 101</h6>
+            </div>
+        }
+        else
+        {
+            <div class="col-12 flexColCenter m-0 p-0">
+                <button class="btn" style="color:transparent;" @onclick="ToggleMenu">
+                    <span class="bi bi-arrow-right-circle ItemIcon me-2 ms-1" aria-hidden="true"></span>
+                </button>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <ul class="flex-column">                   
+        <li>            
+            <NavLink class="nav-link px-3" href="" Match="NavLinkMatch.All">   
+                <div class="menu-item-container">
+                    <span class="bi-house-door ItemIcon" aria-hidden="true"/>
+                    <span class="ItemFont @(!IsVisible ? "hidden" : "")"> Home onwer with long item description </span>                                            
+                </div>
+            </NavLink>            
+        </li>
+        <li>
+            <a class="nav-link" href="counter">
+                <div class="menu-item-container">
+                    <span class="bi-calculator ItemIcon" aria-hidden="true"/>
+                    <span class="ItemFont @(!IsVisible ? "hidden" : "")"> Counter </span>                                            
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="Weather">
+                <div class="menu-item-container">
+                    <span class="bi-list ItemIcon" aria-hidden="true" />
+                    <span class="ItemFont @(!IsVisible ? "hidden" : "")"> Weather </span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#" @onclick="ToggleMnuCdasVis">
+                <div class="menu-item-container">
+                    <span class="bi-list ItemIcon" aria-hidden="true" />
+                    <span class="ItemFont @(!IsVisible ? "hidden" : "")"> Cadastro </span>
+                </div>
+            </a>
+        </li>
+
+        @if (MnuCdasVis)
+        {
+            <li class="">
+                <a class="nav-link" href="counter">
+                    <div class="menu-item-container subMnuItmN1">
+                        <span class="bi-calculator ItemIcon" aria-hidden="true" />
+                        <span class="ItemFont @(!IsVisible ? "hidden" : "")"> Clients </span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="Weather">
+                    <div class="menu-item-container subMnuItmN1">
+                        <span class="bi-list ItemIcon" aria-hidden="true" />
+                        <span class="ItemFont @(!IsVisible ? "hidden" : "")"> Suppliers </span>
+                    </div>
+                </a>
+            </li>
+        }
+
+        <li>
+            <a class="nav-link" href="#" @onclick="ToggleMnuRepVis">
+                <div class="menu-item-container">
+                    <span class="bi-list ItemIcon" aria-hidden="true" />
+                    <span class="ItemFont @(!IsVisible ? "hidden" : "")"> Reports </span>
+                </div>
+            </a>
+        </li>
+
+        @if (MnuRepVis)
+        {
+            <li class="">
+                <a class="nav-link" href="counter">
+                    <div class="menu-item-container subMnuItmN1">
+                        <span class="bi-calculator ItemIcon" aria-hidden="true" />
+                        <span class="ItemFont @(!IsVisible ? "hidden" : "")"> Research </span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="Weather">
+                    <div class="menu-item-container subMnuItmN1">
+                        <span class="bi-list ItemIcon" aria-hidden="true" />
+                        <span class="ItemFont @(!IsVisible ? "hidden" : "")"> Market </span>
+                    </div>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        margin: 2rem;
+    }
+
+    .hidden {
+        display: none; /* Completely hides the element */
+    }
+
+    .sidebar {
+        flex: 1 1 @SideWidth;
+        background-image: linear-gradient(to bottom right, #001100, #44aa44);
+        background: linear-gradient(to bottom, #111111, #444444 );
+        position: relative;
+        width: 4rem;
+        border: 1px solid black; /* Example border for the sidebar */
+    }
+
+    .flexCenter {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flexColStart {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        color: blue;
+    }
+
+    .flexColCenter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: black;
+    }
+
+    .flexRowCenter {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        color: black;
+    }
+
+    .ItemIcon {
+        font-size: 1.2rem;
+        color: lightgoldenrodyellow;
+    }
+
+    .ItemFont {
+        font-size: 0.9rem;
+        color: lightgoldenrodyellow;    
+        margin: 1.3rem;
+    }
+    /* NavMenu.css */
+    .menu-item-container {       
+        padding: 0.3rem;        
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #444444;
+    }
+
+    .nav-link {
+        position: absolute; /* Absolute positioning within the parent container */
+        left: 0; /* Align to the left edge */
+        overflow: visible; /* Allow text to overflow */
+        white-space: nowrap; /* Prevent text wrapping */ 
+    }
+
+    .subMnuItmN1{
+        margin-left: 1.7rem;
+    }
+</style>
+
+@code {
+    [Parameter]
+    public string SideWide { get; set; } = string.Empty;
+
+    private bool IsVisible = true;
+    private string SideWidth = "";
+
+    //  Menu structure
+    bool MnuCdasVis = false;
+    bool sbuMnuCadVis = false;
+
+    bool MnuRepVis = false;
+    bool subMnuRepVis = false;
+
+    protected override void OnInitialized()
+    {
+        SideWidth = SideWide;
+        base.OnInitialized();
+    }
+    private void ToggleMenu()
+    {
+        IsVisible = !IsVisible;
+        SideWidth = (SideWidth == "30px" ? "220px" : "30px");
+    }
+    private void ToggleMnuCdasVis()
+    {
+        MnuCdasVis = !MnuCdasVis;
+    }
+    private void ToggleMnuRepVis()
+    {
+        MnuRepVis = !MnuRepVis;
+    }
+
+}
