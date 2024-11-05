@@ -1,0 +1,11 @@
+﻿@page "/Research"
+
+<PageTitle>Research</PageTitle>
+
+@code {
+    [CascadingParameter]
+    public Action<string>? GetTitle { get; set; }
+
+    protected override void OnInitialized() => ExecuteGetTitleAction();
+    private void ExecuteGetTitleAction() => GetTitle?.Invoke("Research Reports");
+}

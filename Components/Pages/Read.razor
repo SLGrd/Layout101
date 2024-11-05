@@ -1,0 +1,11 @@
+﻿@page "/Read"
+
+<PageTitle>Read</PageTitle>
+
+@code {
+    [CascadingParameter]
+    public Action<string>? GetTitle { get; set; }
+
+    protected override void OnInitialized() => ExecuteGetTitleAction();
+    private void ExecuteGetTitleAction() => GetTitle?.Invoke("Read Records");
+}

@@ -1,0 +1,175 @@
+﻿@page "/Logout"
+
+<!-- Presentation Page -->
+<PageTitle>Logout</PageTitle>
+
+<!-- HTML -->
+<div class="col-12 flexColCenter m-0 p-0 bdy" style="height:100%; border:solid 3px black">
+        <h1>Bye, bye!</h1>
+
+        Hope we meet again soon.
+        <br /><br />
+        <br /><br />
+        <br /><br />
+        <br /><br />
+</div>
+
+<style>
+    .bdy {
+        background: linear-gradient(to bottom, #1199dd, #ffffff);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        height: 100%;
+        margin: 0;
+    }
+    .splash {
+        background: radial-gradient(circle, #6699cc, #66cccc, #99ccff);
+/*         height: auto;
+        width: auto;
+        border-radius: 1%; */
+    }
+    .h100 {
+        height: 100%;
+    }
+    .flexColStart {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        color: black;
+    }
+
+    .flexColCenter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: black;
+    }
+
+    .flexRowStart {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: left;
+        color: black;
+    }
+
+    .flexRowEnd {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: right;
+        color: black;
+    }
+
+    button {
+        /*  btn btn-labeled btn-primary btn-sm; */
+        margin-right: 3px;
+        border: solid 1px red;
+    }
+
+    .htmlbtn {
+        background-image: url(/icons/maintenance_32px.png);
+        padding: 10px;
+        margin-left: 4px;
+       
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    .Img {
+        border: none;
+        padding: 10px;
+        margin-left: 4px;
+        margin-right: 1px;
+        height: 20px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    .Search {
+        background-image: url(/icons/Search1.png);
+    }
+
+    .UpImage {
+        background-image: url(/icons/UpArrow.png);
+    }
+
+    .DownImage {
+        background-image: url(/icons/DownArrow.png);
+    }
+
+    .PageImage {
+        background-image: url(/icons/Weather17.png);
+        padding: 10px;
+        margin-left: 4px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    label {
+        font-size: 12px;
+        color: red;
+    }
+
+    .pHigh {
+        font-weight: 900;
+        font-family: 'Mongolian Baiti';
+        font-size: 1.3rem;
+    }
+
+    .pIndent {
+        text-indent: 39px;
+    }
+
+    p {
+        font-weight: 400;
+        font-family: 'Tahoma';
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    .box {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        margin: 0;
+        max-height: 100vh;
+    }
+
+        .box .row {
+            border: 0px dotted #0313fc;
+            margin: 0;
+        }
+
+            .box .row.header {
+                flex: 0 0 0px;
+                border: solid 0px green;
+                margin: 0;
+            }
+
+            .box .row.parms {
+                flex: 0 1 0px;
+                border: solid 0px green;
+                margin: 0;
+            }
+
+            .box .row.content {
+                flex: 1 1 content;
+                border: solid 0px red;
+                margin: 0;
+            }
+
+            .box .row.footer {
+                flex: 0 1 15px;
+                border: solid 1px green;
+                margin: 0;
+                font-size: 11px;
+            }
+</style>

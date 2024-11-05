@@ -1,0 +1,11 @@
+﻿@page "/Create"
+
+<PageTitle>Create</PageTitle>
+
+@code {
+    [CascadingParameter]
+    public Action<string>? GetTitle { get; set; }
+
+    protected override void OnInitialized() => ExecuteGetTitleAction();
+    private void ExecuteGetTitleAction() => GetTitle?.Invoke("Create a new Record");
+}
