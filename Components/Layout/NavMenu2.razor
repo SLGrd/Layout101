@@ -1,28 +1,34 @@
 ﻿<!--  Visual Studio sidebar modified -->
+
+<!--  Menu Header - This part is supposed to be used to display company name, logo etc -->
+<!--  Here we have also a button that toggles menu view between extended and short     --> 
 <div class="container-fluid m-0 p-0" style="border-bottom:groove 1px gray; height:47px; ">
     <div class="row m-0 p-0 ">
         @if (IsVisible)
         {
             <div class="col-2 flexColCenter m-0 p-0">
                 <button class="btn " style="color:transparent;" @onclick="ToggleMenu">
-                    <span class="bi bi-arrow-left-circle ItemIcon me-2 ms-1" ""></span>
+                    <span class="bi bi-arrow-left-circle ItemIcon me-2 ms-1" ></span>
                 </button>
             </div>
-            <div class="col-10 flexColStart m-0 p-0">
-                <h6 class="m-0" style="border:solid 0px yellow;color:white;padding-left:21px">Layout 101</h6>
+
+            <!-- This space can be used to display the company logo, motto or else -->
+            <div class="col-10 flexRowStart m-0 p-0">
+                <h6 class="m-0" style="border:solid 0px yellow;color:white;padding-left:2.2rem;padding-top: 0.8rem">Layout 101</h6>
             </div>
         }
         else
         {
             <div class="col-12 flexColCenter m-0 p-0">
                 <button class="btn" style="color:transparent;" @onclick="ToggleMenu">
-                    <span class="bi bi-arrow-right-circle ItemIcon me-2 ms-1" ""></span>
+                    <span class="bi bi-arrow-right-circle ItemIcon me-2 ms-1" ></span>
                 </button>
             </div>
         }
     </div>
 </div>
 
+<!--  Menu Body - Pick List -->
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <ul class="flex-column">                   
         <li>            
@@ -57,6 +63,7 @@
                 </div>
             </div>
         </li>
+        <!--  Control Open-Close sub Menu -->
         @if (MnuCdasVis)
         {
             <li class="">
@@ -68,42 +75,40 @@
                 </div>
             </li>
 
-            @if (subMnuCadCli)  /* Crud Clients */
+            @if (subMnuCadCli)  /* Control Open/Close of Crud Clients menu */
             {
-                <ul class="flex-column"> 
-                    <li class="">
-                        <a class="nav-link" href="Create">
-                            <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(10))" @onmouseout="OnMouseOut">
-                                <span class="bi-file-earmark-plus @(IsHovered == 10 ? "ItemHovered" : "ItemIcon")" />
-                                <span class="ItemFont @(IsVisible ? "" : "hidden")"> Create </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a class="nav-link" href="Read">
-                            <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(11))" @onmouseout="OnMouseOut">
-                                <span class="bi-book @(IsHovered == 11 ? "ItemHovered" : "ItemIcon")" />
-                                <span class="ItemFont @(IsVisible ? "" : "hidden")"> Read </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a class="nav-link" href="Update">
-                            <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(12))" @onmouseout="OnMouseOut">
-                                <span class="bi-arrow-clockwise @(IsHovered == 12 ? "ItemHovered" : "ItemIcon")" />
-                                <span class="ItemFont @(IsVisible ? "" : "hidden")"> Update </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a class="nav-link" href="Delete">
-                            <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(13))" @onmouseout="OnMouseOut">
-                                <span class="bi-trash @(IsHovered == 13 ? "ItemHovered" : "ItemIcon")" />
-                                <span class="ItemFont @(IsVisible ? "" : "hidden")"> Delete </span>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                <li class="slimList">
+                    <a class="nav-link" href="Create">
+                        <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(10))" @onmouseout="OnMouseOut">
+                            <span class="bi-file-earmark-plus @(IsHovered == 10 ? "ItemHovered" : "ItemIcon")" />
+                            <span class="ItemFont @(IsVisible ? "" : "hidden")"> Create </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="slimList">
+                    <a class="nav-link" href="Read">
+                        <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(11))" @onmouseout="OnMouseOut">
+                            <span class="bi-book @(IsHovered == 11 ? "ItemHovered" : "ItemIcon")" />
+                            <span class="ItemFont @(IsVisible ? "" : "hidden")"> Read </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="slimList">
+                    <a class="nav-link" href="Update">
+                        <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(12))" @onmouseout="OnMouseOut">
+                            <span class="bi-arrow-clockwise @(IsHovered == 12 ? "ItemHovered" : "ItemIcon")" />
+                            <span class="ItemFont @(IsVisible ? "" : "hidden")"> Update </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="slimList">
+                    <a class="nav-link" href="Delete">
+                        <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(13))" @onmouseout="OnMouseOut">
+                            <span class="bi-trash @(IsHovered == 13 ? "ItemHovered" : "ItemIcon")" />
+                            <span class="ItemFont @(IsVisible ? "" : "hidden")"> Delete </span>
+                        </div>
+                    </a>
+                </li>
             }
 
             <li>
@@ -114,42 +119,41 @@
                     </div>
                 </div>
             </li>
+
             @if (subMnuCadSup)  /* Crud Suppliers */
             {
-                <ul class="flex-column">
-                    <li class="">
-                        <a class="nav-link" href="Create">
-                            <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(14))" @onmouseout="OnMouseOut">
-                                <span class="bi-file-earmark-plus @(IsHovered == 14 ? "ItemHovered" : "ItemIcon")" />
-                                <span class="ItemFont @(IsVisible ? "" : "hidden")"> Create </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a class="nav-link" href="Read">
-                            <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(15))" @onmouseout="OnMouseOut">
-                                <span class="bi-book @(IsHovered == 15 ? "ItemHovered" : "ItemIcon")" />
-                                <span class="ItemFont @(IsVisible ? "" : "hidden")"> Read </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a class="nav-link" href="Update">
-                            <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(16))" @onmouseout="OnMouseOut">
-                                <span class="bi-arrow-clockwise @(IsHovered == 16 ? "ItemHovered" : "ItemIcon")" />
-                                <span class="ItemFont @(IsVisible ? "" : "hidden")"> Update </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a class="nav-link" href="Delete">
-                            <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(17))" @onmouseout="OnMouseOut">
-                                <span class="bi-trash @(IsHovered == 17 ? "ItemHovered" : "ItemIcon")" />
-                                <span class="ItemFont @(IsVisible ? "" : "hidden")"> Delete </span>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                <li class="slimList">
+                    <a class="nav-link" href="Create">
+                        <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(14))" @onmouseout="OnMouseOut">
+                            <span class="bi-file-earmark-plus @(IsHovered == 14 ? "ItemHovered" : "ItemIcon")" />
+                            <span class="ItemFont @(IsVisible ? "" : "hidden")"> Create </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="slimList">
+                    <a class="nav-link" href="Read">
+                        <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(15))" @onmouseout="OnMouseOut">
+                            <span class="bi-book @(IsHovered == 15 ? "ItemHovered" : "ItemIcon")" />
+                            <span class="ItemFont @(IsVisible ? "" : "hidden")"> Read </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="slimList">
+                    <a class="nav-link" href="Update">
+                        <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(16))" @onmouseout="OnMouseOut">
+                            <span class="bi-arrow-clockwise @(IsHovered == 16 ? "ItemHovered" : "ItemIcon")" />
+                            <span class="ItemFont @(IsVisible ? "" : "hidden")"> Update </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="slimList">
+                    <a class="nav-link" href="Delete">
+                        <div class="mnuLvl03@(IsVisible?"L":"S")" @onmouseover="(() => OnMouseOver(17))" @onmouseout="OnMouseOut">
+                            <span class="bi-trash @(IsHovered == 17 ? "ItemHovered" : "ItemIcon")" />
+                            <span class="ItemFont @(IsVisible ? "" : "hidden")"> Delete </span>
+                        </div>
+                    </a>
+                </li>
             }
         }
 
@@ -213,10 +217,10 @@
     ul{
         list-style-type: disc;
     }
-    ul ul li{        
+    .slimList{
         margin-top: 1rem;
-        margin-left: 1rem;
-        margin-bottom: 1rem;
+        margin-left: 0rem;
+        margin-bottom: 1rem;        
     }
     .hidden {
         display: none; /* Completely hides the element */
@@ -229,32 +233,6 @@
         width: 4rem;
         border: 1px solid black; /* Example border for the sidebar */
     }
-/*     .flexCenter {
-        align-items: center;
-        justify-content: center;
-    }
-    .flexColStart {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: center;
-        color: blue;
-    }
-    .flexColCenter {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: black;
-    }
-    .flexRowCenter {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: center;
-        color: black;
-    }
- */
     .ItemIcon {
         font-size: 1.2rem;
         color: lightgoldenrodyellow;
@@ -268,7 +246,7 @@
         color: lightgoldenrodyellow;    
         margin: 1.3rem;
     }
-    /* NavMenu.css */
+    /* NavMenu.css - S = short menu / L = extended menu */
     .mnuLvl01L{
         width: 10.8rem;      
         padding: 0.3rem;
@@ -293,7 +271,7 @@
     }
     .mnuLvl02S {
         width: 2rem;
-        /* margin-left: 1.6rem; */
+        
         padding: 0.3rem;
         border: 1px solid #111111;
         border-radius: 5px;
@@ -309,7 +287,7 @@
     }
     .mnuLvl03S {
         width: 2rem;
-        /* margin-left: 3.2rem; */
+       
         padding: 0.3rem;
         border: 1px solid #111111;
         border-radius: 5px;
@@ -324,12 +302,14 @@
 </style>
 
 @code {
-    [Parameter]
-    public string SideWide { get; set; } = string.Empty;
+        [Parameter]
+        public string SideWide { get; set; } = string.Empty;
+
 
     private bool IsVisible = true;
     private int? IsHovered = 0;
     private string SideWidth = "";
+    string SideShort = "2rem";
 
     //  Menu structure
     bool MnuCdasVis = false;
@@ -342,7 +322,10 @@
 
     protected override void OnInitialized() { SideWidth = SideWide; base.OnInitialized();}
 
-    private void ToggleMenu() { IsVisible = !IsVisible; SideWidth = (SideWidth == "30px" ? SideWide : "30px");}
+    //  This on/off logic shows or hides selected parts of the menu
+    //  enabling a very flexible control over its behavior
+
+    private void ToggleMenu() { IsVisible = !IsVisible; if (IsVisible) { SideWidth = SideWide;} else { SideWidth = SideShort;} }
     private void ToggleMnuCdasVis() { MnuCdasVis = !MnuCdasVis; subMnuCadCli = false; subMnuCadSup = false; }
     private void TogglesubMnuCadCli() => subMnuCadCli = !subMnuCadCli;
     private void TogglesubMnuCadSup() => subMnuCadSup = !subMnuCadSup;
